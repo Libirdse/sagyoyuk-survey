@@ -3,154 +3,412 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>사교육, 어떻게 생각하세요? 설문조사</title>
+<title>현대 사회의 사교육 의존 문제에 대한 탐구 | 16반 7조</title>
+<meta name="description" content="사교육의 폐해를 중심으로 사교육 의존 문제를 탐구한 16반 7조의 보고서 사이트입니다. 설문조사에 참여해 주세요.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F4F7FB;
-    --ink: #14213D;
-    --muted: #55607A;
-    --paper: #FFFFFF;
-    --line: #C9D1E0;
-    --mark: #FFE14D;
-    --btn: #1F3FBF;
-    --btn-text: #FFFFFF;
+    --bg: #F5F6F8;
+    --surface: #FFFFFF;
+    --ink: #12151C;
+    --muted: #586071;
+    --line: #DCE0E7;
+    --accent: #C9411E;
+    --sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
     --serif: "Noto Serif KR", "Nanum Myeongjo", serif;
-    --sans: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
     box-sizing: border-box;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0F1420; --ink: #E8ECF4; --muted: #A3ADC2; --paper: #1A2133;
-      --line: #36405A; --btn: #7C9BFF; --btn-text: #0F1420;
+      --bg: #0E1014; --surface: #171A21; --ink: #F0F2F5; --muted: #9BA3B3;
+      --line: #2B303B; --accent: #FF7A55;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0F1420; --ink: #E8ECF4; --muted: #A3ADC2; --paper: #1A2133;
-    --line: #36405A; --btn: #7C9BFF; --btn-text: #0F1420;
+    --bg: #0E1014; --surface: #171A21; --ink: #F0F2F5; --muted: #9BA3B3;
+    --line: #2B303B; --accent: #FF7A55;
   }
   *, *::before, *::after { box-sizing: inherit; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4.2rem); scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.75;
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16.5px; line-height: 1.8;
+    word-break: keep-all; overflow-wrap: break-word;
   }
-  main { max-width: 34rem; margin: 0 auto; padding: 2.5rem 1.25rem 3rem; }
-  h1 {
-    font-family: var(--serif);
-    font-weight: 900;
-    font-size: clamp(1.9rem, 8vw, 2.6rem);
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.9rem;
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    background: var(--bg); z-index: 10;
   }
-  h1 span { background: linear-gradient(transparent 58%, var(--mark) 58%); color: inherit; }
-  .lede { color: var(--muted); margin: 0 0 2rem; }
-  h2 {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: 1.35rem;
-    line-height: 1.4;
-    margin: 2.6rem 0 0.8rem;
-  }
-  p { margin: 0 0 1rem; }
+  a { color: inherit; }
 
-  .receipt {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.4rem 1.3rem 1.2rem;
-    margin: 0 0 0.6rem;
-    font-variant-numeric: tabular-nums;
-    position: relative;
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 11;
+    background: var(--bg); border-bottom: 1px solid var(--line);
   }
-  .receipt::after {
-    content: "";
-    position: absolute; left: -1px; right: -1px; bottom: -9px; height: 9px;
-    background:
-      linear-gradient(135deg, var(--paper) 50%, transparent 50%) 0 0 / 14px 9px repeat-x,
-      linear-gradient(225deg, var(--paper) 50%, transparent 50%) 0 0 / 14px 9px repeat-x;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    opacity: 0.0;
+  .bar-in {
+    max-width: 40rem; margin: 0 auto; padding: 0.6rem 1.1rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
   }
-  .receipt h3 { font-size: 1rem; margin: 0 0 0.2rem; font-weight: 700; }
-  .receipt .sub { color: var(--muted); font-size: 0.88rem; margin: 0 0 1rem; line-height: 1.5; }
-  .row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
-  .row:last-of-type { border-bottom: 0; }
-  .row b { font-weight: 500; white-space: nowrap; }
-  .total {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-    border-top: 2px solid var(--ink);
-    margin-top: 0.7rem; padding-top: 0.8rem;
-    font-weight: 700; font-size: 1.15rem;
-  }
-  .total span:last-child { background: linear-gradient(transparent 58%, var(--mark) 58%); }
-  .src { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin: 0.5rem 0 0; }
+  .bar-title { font-weight: 700; font-size: 0.92rem; line-height: 1.3; }
+  .bar-title small { display: block; font-weight: 400; color: var(--muted); font-size: 0.78rem; }
 
-  ul.facts { list-style: none; padding: 0; margin: 0 0 1rem; }
-  ul.facts li { padding: 0.75rem 0; border-top: 1px solid var(--line); }
-  ul.facts li:last-child { border-bottom: 1px solid var(--line); }
-  ul.facts strong { font-weight: 700; }
-
-  .cta { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--ink); }
-  .cta p { margin-bottom: 1.2rem; }
   .btn {
-    display: block; text-align: center; text-decoration: none;
-    background: var(--btn); color: var(--btn-text);
-    font-family: var(--sans); font-weight: 700; font-size: 1.1rem;
-    padding: 1rem 1.2rem; border-radius: 8px;
+    display: inline-block; text-align: center; text-decoration: none;
+    background: var(--ink); color: var(--bg);
+    font-family: var(--sans); font-weight: 700; font-size: 1rem;
+    padding: 0.85rem 1.4rem; border-radius: 999px; white-space: nowrap;
   }
-  .btn:hover { filter: brightness(1.08); }
-  .btn:focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; }
-  .small { color: var(--muted); font-size: 0.85rem; margin-top: 1rem; }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  .btn.small { font-size: 0.88rem; padding: 0.5rem 1rem; }
+  .btn.block { display: block; font-size: 1.1rem; padding: 1.05rem 1.2rem; border-radius: 14px; white-space: normal; }
+  .btn:hover { filter: brightness(1.2); }
+  .btn:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  main { max-width: 40rem; margin: 0 auto; padding: 0 1.1rem 3.5rem; }
+  section { padding-top: 3rem; }
+  h1 {
+    font-family: var(--sans); font-weight: 900; letter-spacing: -0.03em;
+    font-size: clamp(2rem, 9vw, 2.9rem); line-height: 1.22; margin: 2.2rem 0 0.8rem;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { font-size: 1.05rem; color: var(--muted); margin: 0 0 1.6rem; }
+  h2 {
+    font-family: var(--sans); font-weight: 900; letter-spacing: -0.02em;
+    font-size: 1.55rem; line-height: 1.35; margin: 0 0 1rem;
+  }
+  h3 { font-size: 1.05rem; font-weight: 700; margin: 1.6rem 0 0.4rem; }
+  p { margin: 0 0 1rem; }
+  .muted { color: var(--muted); }
+  .note { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  /* hero dots */
+  .dots-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem 1.2rem 1.1rem; margin: 0 0 1.4rem; }
+  .dots { display: grid; grid-template-columns: repeat(10, 1fr); gap: clamp(5px, 2.2vw, 10px); max-width: 20rem; margin: 0 auto 1rem; }
+  .dots i { display: block; aspect-ratio: 1; border-radius: 50%; background: var(--accent); }
+  .dots i.off { background: transparent; border: 2px solid var(--line); }
+  .dots-cap { text-align: center; margin: 0; font-weight: 700; font-size: 1.05rem; line-height: 1.55; }
+  .dots-cap span { color: var(--accent); }
+  .dots-src { text-align: center; font-size: 0.8rem; color: var(--muted); margin: 0.4rem 0 0; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
+  .hero-cta .note { margin: 0; }
+
+  /* toc */
+  .toc { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.2rem 0 0.4rem; margin: 2rem 0 0; scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { flex: none; text-decoration: none; font-size: 0.88rem; font-weight: 500; padding: 0.4rem 0.85rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0 0 1rem; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1rem 0.9rem; }
+  .stat b { display: block; font-size: 1.45rem; line-height: 1.25; font-weight: 900; letter-spacing: -0.02em; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 0.85rem; color: var(--muted); line-height: 1.5; display: block; margin-top: 0.3rem; }
+
+  /* details */
+  details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 0.6rem; }
+  summary { list-style: none; cursor: pointer; padding: 0.9rem 2.6rem 0.9rem 1rem; font-weight: 700; position: relative; line-height: 1.5; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.3rem; font-weight: 500; color: var(--muted); }
+  details[open] summary::after { content: "−"; }
+  details .body { padding: 0 1rem 0.4rem; }
+  details .body p:last-child { margin-bottom: 0.8rem; }
+
+  /* quote */
+  blockquote { margin: 1.2rem 0; padding: 0.2rem 0 0.2rem 1.1rem; border-left: 4px solid var(--accent); font-family: var(--serif); font-weight: 600; font-size: 1.15rem; line-height: 1.7; }
+
+  /* cards */
+  .cards { display: grid; gap: 0.7rem; margin: 0 0 1rem; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem 1.1rem 0.5rem; }
+  .card h3 { margin-top: 0; }
+  .card .tag { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem; }
+
+  ul.plain { padding-left: 1.2rem; margin: 0 0 1rem; }
+  ul.plain li { margin-bottom: 0.35rem; }
+
+  .finding { background: var(--surface); border: 2px solid var(--ink); border-radius: 14px; padding: 1.2rem 1.2rem 0.6rem; }
+  .finding strong { font-size: 1.12rem; }
+
+  /* sources */
+  ol.src { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.src li { counter-increment: s; padding: 1rem 0 1rem 2.2rem; border-top: 1px solid var(--line); position: relative; font-size: 0.92rem; line-height: 1.7; }
+  ol.src li::before { content: counter(s); position: absolute; left: 0; top: 1rem; font-weight: 900; color: var(--accent); }
+  ol.src a { word-break: break-all; color: var(--accent); }
+  ol.src .t { font-weight: 700; display: block; }
+  ol.src .d { display: block; color: var(--muted); margin-top: 0.2rem; }
+
+  .cta { margin-top: 3.5rem; padding: 1.6rem 1.3rem; background: var(--surface); border: 2px solid var(--ink); border-radius: 18px; }
+  .cta h2 { margin-bottom: 0.6rem; }
+
+  footer { max-width: 40rem; margin: 0 auto; padding: 0 1.1rem 2rem; font-size: 0.82rem; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="bar-title">사교육 의존 문제 탐구<small>16반 7조</small></div>
+    <a class="btn small" href="https://forms.gle/k5KrN4ExATFVWvNT7">설문 참여</a>
+  </div>
+</header>
+
 <main>
-  <h1>사교육, <span>어떻게 생각하세요?</span></h1>
-  <p class="lede">학교 과제로 대한민국 사교육 문제에 대한 학생과 학부모의 경험과 생각을 묻는 설문을 진행합니다.</p>
+  <h1>학원은 <em>선택</em>일까,<br>불안 때문일까?</h1>
+  <p class="sub">현대 사회의 사교육 의존 문제에 대한 탐구 &mdash; 사교육의 폐해를 중심으로</p>
 
-  <section class="receipt" aria-label="사교육 참여 학생의 월평균 사교육비">
-    <h3>한 달 사교육비 청구서</h3>
-    <p class="sub">사교육에 참여하는 학생 1인당 월평균, 2025년 기준</p>
-    <div class="row"><span>초등학생</span><b>512,000원</b></div>
-    <div class="row"><span>중학생</span><b>632,000원</b></div>
-    <div class="row"><span>고등학생</span><b>793,000원</b></div>
-    <div class="row"><span>고등학교 1학년</span><b>806,000원</b></div>
-    <div class="total"><span>전체 평균</span><span>604,000원</span></div>
+  <div class="dots-wrap">
+    <div class="dots" id="dots" role="img" aria-label="학생 100명 중 80명이 사교육에 참여하는 모습을 나타낸 점 그래프"></div>
+    <p class="dots-cap">학생 10명 중 <span>8명</span>이 사교육을 받습니다</p>
+    <p class="dots-src">2024년 초중고 사교육비 조사, 참여율 80.0%</p>
+  </div>
+
+  <div class="hero-cta">
+    <a class="btn" href="https://forms.gle/k5KrN4ExATFVWvNT7">설문조사 참여하기</a>
+    <p class="note">보고서를 읽지 않고 설문만 해도 괜찮아요.</p>
+  </div>
+
+  <nav class="toc" aria-label="목차">
+    <a href="#motive">탐구 동기</a>
+    <a href="#numbers">숫자로 보기</a>
+    <a href="#theory">이론적 배경</a>
+    <a href="#research">다른 연구</a>
+    <a href="#method">탐구 방법</a>
+    <a href="#result">설문 결과</a>
+    <a href="#solution">해결 방안</a>
+    <a href="#conclusion">결론</a>
+    <a href="#sources">출처</a>
+  </nav>
+
+  <section id="motive">
+    <h2>탐구 동기</h2>
+    <p>사교육은 학교 수업에서 부족한 부분을 채우고 자기 수준에 맞는 공부를 할 수 있게 해 줍니다. 그렇다면 사교육을 많이 받을수록 반드시 좋은 결과가 나올까요? 우리 모둠은 이 질문에서 출발했습니다.</p>
+    <p>주변 친구들이 학원에 다니고 선행학습을 하는 모습을 보면 나도 뒤처지지 않으려고 같은 선택을 하게 됩니다. 부모의 기대와 입시 경쟁까지 더해지면, 학생이 정말 필요해서 사교육을 고르는 것인지 아니면 불안 때문에 계속 이어 가는 것인지 구분하기 어려워집니다.</p>
+    <p>학원 수업과 숙제가 늘어나면 수면과 휴식, 친구들과의 교류, 취미 활동으로 쓸 시간이 줄어듭니다. 과전류가 흐르는 회로의 부품이 손상되듯, 지나친 학습량과 경쟁 압박은 학습 효율과 흥미를 떨어뜨릴 수 있다고 생각했습니다. 학원이 정해 준 일정에만 의존하면 스스로 계획을 세우는 자기주도학습 능력을 기르기도 어렵습니다.</p>
+    <p>그래서 이번 탐구에서는 사교육 의존의 심리적 원인과 그것이 학업 성취, 정서적 안정, 교육 격차에 미치는 영향을 살펴보고, 공교육을 중심으로 한 해결 방안을 찾아보기로 했습니다.</p>
   </section>
-  <p class="src">출처: 교육부·국가데이터처, 2025년 초중고 사교육비 조사(2026년 3월 발표)</p>
 
-  <h2>배경</h2>
-  <p>학교 수업이 끝나도 많은 학생이 학원과 과외로 이어서 공부합니다. 2025년 초·중·고 사교육비 총액은 27조 5천억 원이었고, 학생의 75.7%가 사교육에 참여했습니다. 참여 학생은 일주일에 평균 7.1시간을 사교육에 씁니다.</p>
-  <p>총액은 5년 만에 줄었지만, 학생 수 자체가 줄어든 영향이 큽니다. 사교육을 받는 학생 한 명이 쓰는 비용은 오히려 늘어 역대 최고였습니다.</p>
+  <section id="numbers">
+    <h2>숫자로 보는 사교육</h2>
+    <div class="stats">
+      <div class="stat"><b>약 29조 2천억 원</b><span>사교육비 총액</span></div>
+      <div class="stat"><b>80.0%</b><span>사교육 참여율</span></div>
+      <div class="stat"><b>47만 4천 원</b><span>전체 학생 1인당 월평균</span></div>
+      <div class="stat"><b>59만 2천 원</b><span>참여 학생만 기준 월평균</span></div>
+    </div>
+    <p class="note">출처: 교육부·통계청, 「2024년 초중고 사교육비 조사 결과」(2025). 다만 참여율과 지출액만으로 모든 학생이 사교육에 의존한다고 단정할 수는 없습니다. 의존 정도를 알려면 참여 목적, 학습 시간, 스스로 공부하는 능력, 중단할 때의 불안도 함께 봐야 합니다.</p>
+    <p class="note">2026년 3월에 발표된 2025년 조사에서는 사교육비 총액이 27조 5천억 원으로 5년 만에 줄었습니다. 하지만 이는 학생 수 감소의 영향이 크고, 사교육을 받는 학생 1인당 비용은 오히려 늘었다고 보도되었습니다. (출처 8번)</p>
+  </section>
 
-  <h2>문제 상황</h2>
-  <ul class="facts">
-    <li><strong>소득에 따른 격차.</strong> 사교육 참여율이 고소득 가구는 84.9%, 저소득 가구는 52.8%였습니다.</li>
-    <li><strong>학년이 오를수록 커지는 부담.</strong> 초등학생보다 고등학생의 월평균 비용이 약 28만 원 더 높습니다.</li>
-    <li><strong>줄지 않는 의존.</strong> 월 100만 원 이상 쓰는 학생의 비중도 11.6%로 전년보다 늘었습니다.</li>
-  </ul>
-  <p>통계는 사교육의 규모를 보여 주지만, 그것을 받는 학생과 비용을 내는 가족이 실제로 어떻게 느끼는지는 알려 주지 않습니다. 이 설문은 그 경험을 듣기 위해 만들었습니다.</p>
+  <section id="theory">
+    <h2>이론적 배경</h2>
+    <p>사교육 의존은 개인의 학습 방식이나 가계 지출을 넘어, 교육 기회의 공정성과 공교육의 역할, 청소년의 건강과 이어진 사회 문제입니다. 아래 항목을 눌러 펼쳐 보세요.</p>
+
+    <details>
+      <summary>인적 자본론: 사교육비는 미래를 위한 투자?</summary>
+      <div class="body">
+        <p>교육을 통해 지식과 기술을 쌓으면 생산성과 미래 소득이 높아진다고 보는 경제학 이론입니다(Becker). 이 관점에서 사교육비는 지금의 소비이면서 진학과 취업을 위한 투자입니다.</p>
+        <p>하지만 모든 사교육이 같은 효과를 내지는 않습니다. 수준에 맞지 않는 선행학습이나 반복 수강은 비용과 시간에 비해 효과가 낮을 수 있습니다. 가치를 판단하는 기준은 수강량이 아니라 실제 이해도와 학습 능력의 변화입니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>신호 이론: 점수는 능력을 보여 주는 신호</summary>
+      <div class="body">
+        <p>학력이나 자격은 눈에 보이지 않는 능력과 성실성을 타인에게 보여 주는 신호로 작용한다는 이론입니다(Spence). 학교 이름과 시험 성적이 중요한 평가 기준인 환경에서 사교육은 경쟁력 있는 신호를 얻는 수단이 됩니다.</p>
+        <p>이때 관심은 얼마나 깊이 이해했는가보다 다른 지원자보다 높은 점수를 받았는가에 쏠릴 수 있습니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>모두가 늘리는데 기회는 그대로인 경쟁</summary>
+      <div class="body">
+        <p>상대 순위가 중요하면 한 학생의 추가 학습이 다른 학생에게는 학습량을 늘려야 한다는 압력이 됩니다. 필요한지 따져 보기보다 밀리지 않으려고 같은 선택을 하게 됩니다.</p>
+        <p>그 결과 모두가 더 많은 비용과 시간을 쓰는데도 원하는 진학 기회의 수는 늘지 않습니다. 사교육 의존은 개인의 욕심만이 아니라, 경쟁에서 벗어나면 손해를 볼까 두려운 마음이 서로의 지출을 자극하는 집단적 문제입니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>상관관계와 인과관계는 다르다</summary>
+      <div class="body">
+        <p>사교육을 많이 받는 학생의 성적이 높다고 해서 사교육이 성적을 올린 유일한 원인이라고 볼 수는 없습니다. 기존 성적, 학습 동기, 부모의 관심, 가정의 소득, 학교 환경도 영향을 줍니다. 원래 성적이 높은 학생이 사교육을 더 많이 선택했을 가능성도 있습니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>에듀테크: 격차를 줄일까, 키울까?</summary>
+      <div class="body">
+        <p>인공지능과 빅데이터로 오답과 학습 속도를 분석해 수준에 맞는 문제를 주는 서비스는 부족한 부분을 효율적으로 채워 줍니다. 저렴하게 제공되면 지역과 가정 형편에 따른 격차를 줄일 수 있습니다.</p>
+        <p>반대로 정밀한 분석과 상담이 고가 서비스에만 몰리면 격차가 커질 수 있고, 추천과 정답 확인에만 기대면 스스로 목표를 세우고 오류를 해결하는 경험이 줄어들 수 있습니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>공정성: 시험 준비 과정의 차이</summary>
+      <div class="body">
+        <p>롤스의 정의론에서 공정한 기회균등은 사회적 배경이 달라도 비슷한 능력과 의지를 가진 사람이 비슷한 기회를 누려야 한다는 원칙입니다. 시험에 응시할 자격이 같다는 것만으로 공정성이 완성되지는 않습니다. 준비 과정에서 쓸 수 있는 수업, 교재, 정보, 상담의 차이도 봐야 합니다.</p>
+        <p>그렇다고 사교육을 받는 학생의 노력이나 가정의 선택을 부정하는 것도 적절하지 않습니다. 핵심은 경제적 이유로 기본 학습 지원에서 배제되는 학생이 없도록 공교육의 책임을 강화하는 것입니다.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>건강: 수면, 휴식, 마음</summary>
+      <div class="body">
+        <p>학원과 과제가 늦게까지 이어지면 수면, 규칙적인 식사, 운동에 쓸 시간이 부족해집니다. 세계보건기구(WHO)는 건강한 수면 습관과 규칙적인 신체 활동을 청소년 정신 건강의 중요한 요소로 제시합니다.</p>
+        <p>학업 압박과 우울·불안의 관련성을 종합한 연구(Steare 외, 2023)도 있습니다. 다만 대부분 한 시점만 조사한 연구라서, 사교육이 정신 건강 문제를 곧바로 일으킨다고 단정할 수는 없습니다. 학습량뿐 아니라 학생이 느끼는 부담, 선택권, 가정과 학교의 지지를 함께 봐야 합니다.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="research">
+    <h2>다른 연구는 어떻게 말할까</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">연구 보고서</span>
+        <h3>KDI, 「사교육 의존의 구조적 원인에 대한 고찰 및 함의」</h3>
+        <p>한국개발연구원(KDI)이 2025년 12월에 낸 정책연구시리즈입니다. 부모가 느끼는 경쟁압력이 클수록 사교육 투자가 늘어나고, 특히 학원 수나 시간보다 <b>비용</b>이 늘어나는 방식으로 나타난다고 분석했습니다. 이 영향은 가구소득과 부모 학력에 따라 다르게 나타났습니다.</p>
+        <p>보고서는 양질의 일자리 취업 확률이 약 10%, 상위권 대학 입학 확률이 약 4%라는 매우 제한된 기회가 불안을 키운다고 짚습니다. 그래서 사교육 규제만으로는 효과를 보기 어렵고, 노동시장의 이중구조 해소와 성공에 대한 인식 다변화, 입시 정보 격차 해소, 진단평가와 인공지능 맞춤형 교육 도입처럼 부모의 불안 자체를 줄이는 방향을 제안합니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag">대학 신문 기사</span>
+        <h3>춘천교대신문방송, 「한국 사교육의 현황: 무엇이 문제이며 해결 방안은 무엇인가」</h3>
+        <p>이 기사는 사교육의 문제를 세 가지로 정리합니다. 경제력에 따라 학업 격차가 커져 사회적 불평등이 깊어지는 것, 학교 수업을 소홀히 여기며 공교육 신뢰가 떨어지는 것, 학생이 과도한 학습 스트레스와 소진을 겪는 것입니다.</p>
+        <p>해결 방안으로는 공교육 안에서 학습 다양성을 높이고, 입시 위주 평가를 과정 중심으로 바꾸며, 저소득 가정 학생에게 교육 기회를 주는 프로그램을 늘리는 것을 제안합니다. 사교육비 상한제나 학원 운영 시간 제한 같은 규제도 함께 논의합니다.</p>
+        <p class="note">학보 기사이므로 보조 자료로만 참고했습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="method">
+    <h2>탐구 방법</h2>
+    <p>우리 모둠은 일반적인 이론에서 가설을 세우고, 그 가설대로 현상이 나타나는지 조사 자료로 확인하는 <b>연역적 탐구방법</b>을 택했습니다.</p>
+    <h3>가설</h3>
+    <blockquote>학생의 사교육 의존에는 교과 내용에 대한 보충 요구뿐 아니라 학습 불안과 자기관리의 어려움도 관련되어 있을 것이다.</blockquote>
+    <p>이 가설이 맞다면 사교육을 이용하는 이유에서 학습 관리와 불안 해소에 관한 응답이 나타나야 합니다. 또 사교육에 기대지 않고 공부한 경험에서는 이를 대신한 학습 방법이나 관리 방법을 찾을 수 있어야 합니다.</p>
+    <p>자료 수집 도구는 우리가 직접 만든 온라인 설문조사입니다. 사교육에 대한 우리 생각만으로 결론을 내리지 않고, 다른 사람들의 학습 경험과 인식을 알아보기 위해서입니다.</p>
+  </section>
+
+  <section id="result">
+    <h2>설문 결과</h2>
+    <div class="finding">
+      <p><strong>사교육 없이 공부했다고 응답한 사람은 한 명도 없었습니다.</strong></p>
+      <p>여기서는 사교육을 전혀 받지 않고 공부한 경우만 “사교육 없이 공부했다”로 보았습니다.</p>
+    </div>
+    <p style="margin-top:1rem">그래서 사교육에 기대지 않은 학습 방법을 묻는 하위 문항은 제대로 분석하기 어려웠습니다. 이것이 이번 조사의 가장 아쉬운 점입니다. 응답자 범위가 제한되어 있으므로 결과는 응답자들의 경험을 보여 주는 자료일 뿐, 전체 학생으로 일반화할 수는 없습니다.</p>
+  </section>
+
+  <section id="solution">
+    <h2>해결 방안</h2>
+    <p>사교육을 무조건 부정하거나 줄이라고만 요구하는 것으로는 부족합니다. 우리는 사교육에서 얻으려는 도움을 기능별로 나누고, 그 기능을 다른 방식으로 채울 수 있는지 살펴봤습니다.</p>
+
+    <div class="cards">
+      <div class="card">
+        <span class="tag">사회적 영역</span>
+        <h3>다른 사람의 학습 경험 공유</h3>
+        <p>사교육 받는 모습만 자주 접하면 사교육이 모두에게 필수라고 느끼기 쉽습니다. 다양한 학습 경험을 알면 자기 상황에 맞는 방법을 생각해 볼 수 있습니다. 다만 한 사람의 경험이 모두에게 정답은 아니므로, 어떤 조건에서 어떤 방법을 썼고 무엇이 어려웠는지를 함께 봐야 합니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag">과학적 영역</span>
+        <h3>학습 원리를 활용한 앱</h3>
+        <p>EBS의 인공지능 학습 서비스는 학습 이력을 분석해 부족한 부분에 맞는 문제를 추천합니다. Anki는 간격 반복을 이용해 배운 내용을 스스로 떠올리며 복습하게 돕습니다. 기준은 앱이라는 형태가 아니라 반복, 회상, 피드백이라는 학습 원리입니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag">기술적 영역</span>
+        <h3>휴대전화 보관·잠금으로 집중 환경 만들기</h3>
+        <p>공부할 의지가 있어도 알림 때문에 흐름이 끊기곤 합니다. 의지만으로 버티기보다 방해 요소에 접근하기 어려운 환경을 만드는 방법입니다. 중요한 점은 다른 사람이 강제로 통제하는 것이 아니라, 학생이 스스로 목표와 시간을 정하는 자율적 관리라는 것입니다.</p>
+      </div>
+    </div>
+
+    <h3>학교와 지역사회가 할 수 있는 일</h3>
+    <ul class="plain">
+      <li>수준에 맞는 보충·심화 수업과 기초학력 맞춤형 지원</li>
+      <li>방과후학교를 코딩, 예술, 스포츠, 진로 탐색 등으로 확대</li>
+      <li>대학, 도서관, 청소년수련관과 협력한 무료·저비용 학습 프로그램</li>
+      <li>진로·진학 상담과 공교육 학습 지원 정보의 충분한 제공</li>
+    </ul>
+    <p class="note">이번 탐구에서 앱과 잠금 도구의 효과를 직접 비교·측정하지는 않았습니다. 따라서 성적 향상이나 사교육 의존 감소를 입증한 결과로 제시하지 않습니다.</p>
+  </section>
+
+  <section id="conclusion">
+    <h2>결론</h2>
+    <p>우리 모둠이 문제로 본 것은 사교육을 받는 행위 자체가 아닙니다. 학생이 자신에게 필요한 것을 충분히 판단하지 못한 채 사교육을 <b>필수적인 수단</b>으로 받아들이는 의존 상태입니다.</p>
+    <p>학생이 어려움을 겪는 부분이 개념 이해인지, 반복 복습인지, 학습 계획과 집중 유지인지에 따라 필요한 도움이 다릅니다. 그래서 사교육을 줄이라는 요구만으로는 부족하고, 학생이 고를 수 있는 대안을 함께 마련해야 합니다. 그 과정에서 수면, 휴식, 신체 활동도 성장의 필수 조건으로 지켜야 합니다.</p>
+    <p>이 탐구의 한계는 설문 응답만으로 사교육 의존의 원인과 결과를 구분하기 어렵다는 점입니다. 웹사이트와 제안한 도구가 장기적으로 어떤 변화를 만드는지도 확인하지 못했습니다. 앞으로는 이용 전후의 인식 변화, 도구 활용 기록, 자기주도학습 자신감을 일정 기간 비교해 보려 합니다.</p>
+  </section>
 
   <section class="cta" id="survey">
-    <h2 style="margin-top:0">여러분의 이야기를 들려주세요</h2>
-    <p>답변은 학교 과제의 분석에만 사용합니다.</p>
-    <a class="btn" id="survey-link" href="#survey">설문 참여하기</a>
-    <p class="small">버튼을 누르면 구글 설문지로 이동합니다.</p>
+    <h2>여러분의 이야기를 들려주세요</h2>
+    <p>사교육은 어떤 도움이 되었고, 어떤 점이 힘들었나요? 응답은 16반 7조의 탐구 분석에 활용됩니다.</p>
+    <a class="btn block" href="https://forms.gle/k5KrN4ExATFVWvNT7">설문조사 참여하기</a>
+    <p class="note" style="margin:0.9rem 0 0">버튼을 누르면 구글 설문지로 이동합니다.</p>
+  </section>
+
+  <section id="sources">
+    <h2>출처</h2>
+    <ol class="src">
+      <li>
+        <span class="t">교육부·통계청, 「2024년 초중고 사교육비 조사 결과」, 2025.</span>
+        <a href="https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=102822&lev=0&m=020402">https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&amp;boardSeq=102822&amp;lev=0&amp;m=020402</a>
+        <span class="d">교육부 공식 홈페이지에 게시된 조사 결과입니다. 사교육비 총액, 참여율, 학생 1인당 월평균 사교육비를 확인할 수 있으며, 이 사이트의 2024년 통계 출처입니다.</span>
+      </li>
+      <li>
+        <span class="t">세계보건기구(WHO), 「Mental health of adolescents」, 2025.</span>
+        <a href="https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health">https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health</a>
+        <span class="d">WHO 공식 홈페이지의 청소년 정신 건강 설명 자료입니다. 수면, 운동, 가정과 학교의 지지가 중요하다는 내용의 근거이며, 사교육의 영향을 직접 조사한 자료는 아닙니다.</span>
+      </li>
+      <li>
+        <span class="t">Steare 외, 「The association between academic pressure and adolescent mental health problems: A systematic review」, Journal of Affective Disorders, 339, 302–317, 2023.</span>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/37437728/">https://pubmed.ncbi.nlm.nih.gov/37437728/</a>
+        <span class="d">PubMed에 등록된 학술논문의 초록 페이지입니다. 학업 압박과 청소년 정신 건강의 관련성을 기존 연구로 종합한 논문이며, 사교육이 문제를 직접 유발한다는 인과관계를 입증한 자료는 아닙니다.</span>
+      </li>
+      <li>
+        <span class="t">Gary S. Becker, Human Capital, 제3판, University of Chicago Press, 1993.</span>
+        <a href="https://press.uchicago.edu/ucp/books/book/chicago/H/bo3684031.html">https://press.uchicago.edu/ucp/books/book/chicago/H/bo3684031.html</a>
+        <span class="d">시카고대학교 출판사의 도서 소개 페이지입니다. 교육과 훈련 지출을 생산성을 높이는 투자로 설명하는 인적 자본론의 대표 저서이며, 책 전체가 무료로 제공되지는 않습니다.</span>
+      </li>
+      <li>
+        <span class="t">Michael Spence, 「Job Market Signaling」, The Quarterly Journal of Economics, 87(3), 355–374, 1973.</span>
+        <a href="https://competitionandappropriation.econ.ucla.edu/wp-content/uploads/sites/95/2017/08/Spence1973.pdf">https://competitionandappropriation.econ.ucla.edu/wp-content/uploads/sites/95/2017/08/Spence1973.pdf</a>
+        <span class="d">UCLA 경제학 관련 웹사이트에 게시된 논문 원문 PDF입니다. 교육 이력이 지원자의 특성을 전달하는 신호로 작용하는 과정을 설명하는 신호 이론의 근거이며, 한국의 사교육을 직접 조사한 논문은 아닙니다.</span>
+      </li>
+      <li>
+        <span class="t">John Rawls, A Theory of Justice: Revised Edition, Harvard University Press, 1999.</span>
+        <a href="https://www.jstor.org/stable/j.ctvkjb25m">https://www.jstor.org/stable/j.ctvkjb25m</a>
+        <span class="d">학술자료 플랫폼 JSTOR에 등록된 『정의론』 개정판 페이지입니다. 공정한 기회균등과 가정 배경에 따른 교육 기회의 차이를 논의할 때 연결되는 이론적 참고 문헌입니다.</span>
+      </li>
+      <li>
+        <span class="t">한성민, 「사교육 의존의 구조적 원인에 대한 고찰 및 함의」, 한국개발연구원(KDI) 정책연구시리즈 2025-03, 2025.12.31.</span>
+        <a href="https://www.kdi.re.kr/research/reportView?pub_no=19029">https://www.kdi.re.kr/research/reportView?pub_no=19029</a>
+        <span class="d">KDI 공식 홈페이지의 연구보고서 페이지입니다. 부모의 경쟁압력과 사교육 투자의 관계를 분석하고 정책을 제안한 보고서이며, 국문요약을 확인할 수 있습니다.</span>
+      </li>
+      <li>
+        <span class="t">이윤아, 「한국 사교육의 현황: 무엇이 문제이며 해결 방안은 무엇인가」, 춘천교대신문방송, 2024.11.17.</span>
+        <a href="https://www.cnbs.co.kr/news/articleView.html?idxno=10768">https://www.cnbs.co.kr/news/articleView.html?idxno=10768</a>
+        <span class="d">춘천교육대학교 학보사의 기사입니다. 사교육의 문제와 해결 방안을 정리한 글이며, 학생 기자가 작성한 보조 참고 자료입니다.</span>
+      </li>
+      <li>
+        <span class="t">뉴시스, 「전체 사교육비 5년만 감소…27.5조원」, 2026.03.12.</span>
+        <a href="https://www.newsis.com/view/NISX20260312_0003545284">https://www.newsis.com/view/NISX20260312_0003545284</a>
+        <span class="d">2025년 초중고 사교육비 조사 결과를 전한 통신사 기사입니다. 이 사이트의 최신 통계 안내(총액 27.5조 원 등)에 참고했습니다.</span>
+      </li>
+    </ol>
   </section>
 </main>
+
+<footer>16반 7조 &middot; 사교육 의존 문제 탐구 &middot; 학교 과제 결과물</footer>
+
+<script>
+  (function () {
+    var box = document.getElementById("dots");
+    if (!box) return;
+    for (var i = 0; i < 100; i++) {
+      var d = document.createElement("i");
+      if (i >= 80) d.className = "off";
+      d.setAttribute("aria-hidden", "true");
+      box.appendChild(d);
+    }
+  })();
+</script>
 </body>
 </html>
